@@ -1,5 +1,4 @@
 # MCPayment-interviewTest
-repository to answer Technical Test from MC Payment
 
 how to run budgetApplication:
 - Please install json-server and run it
