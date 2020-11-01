@@ -31,7 +31,7 @@ function search() {
     .then(({results}) => {
       // check whether the search results exist or not
       if(results.length === 0) {
-        errorHandler()
+        throw Error('Recipe Search Not Found')
       } else {
         thumbnailCheck(results)
         recipeContent(results)
@@ -53,12 +53,11 @@ function handleResponse(response) {
 
 // Error Handler
 function errorHandler(err) {
-  let error = err || 'Recipe Search Not Found'
   document.getElementById('error').innerHTML = ""
   document.getElementById('error').style.display = 'block'
   document.getElementById('loadingImage').style.display = 'none'
   let errorMessage = `
-    <h1><b>${error}</b></h1>
+    <h1><b>${err}</b></h1>
   `
   document.querySelector('#error').insertAdjacentHTML('afterbegin', errorMessage)
 }
@@ -91,4 +90,13 @@ function recipeContent(results) {
     document.querySelector('#recipe').insertAdjacentHTML('afterbegin', content)
     document.getElementById('loadingImage').style.display = 'none'
   }
+}
+
+// Onclick logo
+function clickLogo() {
+  document.getElementById('recipe').innerHTML = ""
+  document.getElementById('title').innerHTML = `Today's Recipe`
+  document.getElementById('loadingImage').style.display = 'block'
+  document.getElementById('error').style.display = 'none'
+  fetchRecipe()
 }
