@@ -14,12 +14,15 @@ fetchRecipe()
 
 // Fetch Recipe Search by Keyword
 function search() {
+  document.getElementById('title').innerHTML = 'Search result'
   let searchInput = document.getElementById('searchInput').value
+  document.getElementById('title').style.display = 'none'
   document.getElementById('error').style.display = 'none'
   document.getElementById('loadingImage').style.display = 'block'
   document.getElementById('recipe').innerHTML = ""
   // check whether there's input or not
   if(!searchInput) {
+    document.getElementById('title').innerHTML = `Today's Recipe`
     document.getElementById('loadingImage').style.display = 'block'
     fetchRecipe()
   } else {
@@ -54,7 +57,6 @@ function errorHandler(err) {
   document.getElementById('error').innerHTML = ""
   document.getElementById('error').style.display = 'block'
   document.getElementById('loadingImage').style.display = 'none'
-  document.getElementById('title').style.display = 'none'
   let errorMessage = `
     <h1><b>${error}</b></h1>
   `

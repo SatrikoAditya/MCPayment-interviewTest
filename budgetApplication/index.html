@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js"></script>
+  <title>Budget Application</title>
+</head>
+<body>
+  <div class="nav">
+    <a onclick="toBalance(event)" href="#balance">Balance</a>
+    <a onclick="toIncome(event)" href="#income">Income</a>
+    <a onclick="toExpense(event)" href="#expenses">Expenses</a>
+  </div><br><br><br>
+  <div class="container">
+
+    <!-- Balance Page -->
+    <section class="balance" id="balance">
+      <h1>Balance</h1>
+      <h2 class="text" id="text">
+
+      </h2>
+      <div class="overal" id="overal">
+        
+      </div>
+    </section>
+    
+    <!-- Income Page -->
+    <section id="income"  style="display: none;">
+      <div class="header">
+        <h1>Income List</h1>
+        <h4><a class="add-btn" href="#openModalIncome">Add New Income</a></h4>
+      </div>
+      <div style="overflow-x:auto;">
+        <table id="table-income">
+          <tr>
+            <th>Title</th>
+            <th>Total</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+          <tbody id="body-income">
+
+          </tbody>
+        </table>
+      </div> 
+    </section>
+    
+    <!-- Expenses Page -->
+    <section id="expenses" style="display: none;">
+      <div class="header">
+        <h1>Expense List</h1>
+        <h4><a class="add-btn" href="#openModalOutcome">Add New Expense</a></h4>
+      </div>
+      <div style="overflow-x:auto;">
+        <table id="table-expenses">
+          <tr>
+            <th>Title</th>
+            <th>Total</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+          <tbody id="body-expenses">
+            
+          </tbody>
+          <tfoot>
+          </tfoot>
+        </table>
+      </div> 
+    </section>
+
+    <!-- Modal add Income -->
+    <div id="openModalIncome" class="modalDialog">
+      <div>	
+        <a href="#" title="Close" class="close">X</a>
+        <h2 id="modal-title">Add New Income</h2>
+        <form>
+          <label>Title</label><br>
+          <input type="text" id="title-income"><br>
+          <label>Total</label><br>
+          <input type="number" id="total-income"><br>
+          <a class="submit-btn" onclick="add(event, 'income')"href="#">Submit</a> 
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal add Expense -->
+    <div id="openModalOutcome" class="modalDialog">
+      <div>	
+        <a href="#" title="Close" class="close">X</a>
+        <h2 id="modal-title">Add New Expense</h2>
+        <form>
+          <label>Title</label><br>
+          <input type="text" id="title-expenses"><br>
+          <label>Total</label><br>
+          <input type="number" id="total-expenses"><br>
+          <a class="submit-btn" onclick="add(event, 'expenses')"href="#">Submit</a> 
+        </form>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
