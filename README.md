@@ -1,7 +1,7 @@
 # MCPayment-interviewTest
 
 how to run budgetApplication:
-- Please install json-server and run it
+- Make sure json-server has been installed
 
 how to run recipeApplication:
 - please install Allow CORS extensions and enable it in browser to Allow CORS
