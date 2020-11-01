@@ -14,8 +14,8 @@ fetchRecipe()
 
 // Fetch Recipe Search by Keyword
 function search() {
-  document.getElementById('title').innerHTML = 'Search result'
   let searchInput = document.getElementById('searchInput').value
+  document.getElementById('title').innerHTML = `Search result for '${searchInput}'`
   document.getElementById('title').style.display = 'none'
   document.getElementById('error').style.display = 'none'
   document.getElementById('loadingImage').style.display = 'block'
@@ -26,7 +26,7 @@ function search() {
     document.getElementById('loadingImage').style.display = 'block'
     fetchRecipe()
   } else {
-    fetch(`http://www.recipepuppy.com/api/?q=${searchInput}`)
+    fetch(`http://www.recipepuppy.com/api/?q=${searchInput.split(' ').join('+')}`)
     .then(handleResponse)
     .then(({results}) => {
       // check whether the search results exist or not
