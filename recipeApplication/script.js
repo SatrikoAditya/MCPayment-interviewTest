@@ -73,6 +73,7 @@ function thumbnailCheck(results) {
 
 // Recipe Content
 function recipeContent(results) {
+  document.getElementById('recipe').innerHTML = ""
   document.getElementById('title').style.display = 'block'
   const content = results.map(recipe => {
     return `
